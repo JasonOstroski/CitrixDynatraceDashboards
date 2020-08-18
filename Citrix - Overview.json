@@ -1,0 +1,256 @@
+{
+    "metadata": {
+        "configurationVersions": [3],
+        "clusterVersion": "1.192.107.20200515-113042"
+    },
+    "id": "75b3a788-e9b5-44f4-be8e-8f678d186367",
+    "dashboardMetadata": {
+        "name": "Citrix - Overview",
+        "shared": true,
+        "owner": "${MyEmail}",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": true
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": {
+                "id": "${mz.id}",
+                "name": "${mz.name}"
+            }
+        },
+        "tags": ["Citrix", "Configurator"]
+    },
+    "tiles": [{
+        "name": "Overview",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Problems",
+        "tileType": "OPEN_PROBLEMS",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 152,
+            "width": 152,
+            "height": 152
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Network status",
+        "tileType": "NETWORK_MEDIUM",
+        "configured": true,
+        "bounds": {
+            "top": 570,
+            "left": 0,
+            "width": 304,
+            "height": 152
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Application health",
+        "tileType": "APPLICATIONS",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 0,
+            "width": 152,
+            "height": 152
+        },
+        "tileFilter": {},
+        "chartVisible": true
+    }, {
+        "name": "${app.name}",
+        "tileType": "APPLICATION",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 342,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "assignedEntities": ["${app.id}"]
+    }, {
+        "name": "World map",
+        "tileType": "APPLICATION_WORLDMAP",
+        "configured": true,
+        "bounds": {
+            "top": 342,
+            "left": 342,
+            "width": 304,
+            "height": 380
+        },
+        "tileFilter": {},
+        "assignedEntities": ["${app.id}"],
+        "metric": "APDEX"
+    }, {
+        "name": "Analysis Links",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 1216,
+            "width": 228,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Host health",
+        "tileType": "HOSTS",
+        "configured": true,
+        "bounds": {
+            "top": 190,
+            "left": 0,
+            "width": 304,
+            "height": 380
+        },
+        "tileFilter": {},
+        "chartVisible": true
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 1216,
+            "width": 228,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "[Acquisition Analysis](#dashboard;id=8a57bf54-112d-47cd-a823-155626bfa631)"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 76,
+            "left": 1216,
+            "width": 228,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "[Storefront Analysis](#dashboard;id=cc322dc3-7e9f-492f-b381-7d66338c244d)"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 152,
+            "left": 1216,
+            "width": 228,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "[VDA Farm Trending](#dashboard;id=3e5b7d43-508a-4b1f-8080-35cbbc766d73)"
+    }, {
+        "name": "Markdown",
+        "tileType": "MARKDOWN",
+        "configured": true,
+        "bounds": {
+            "top": 114,
+            "left": 1216,
+            "width": 228,
+            "height": 38
+        },
+        "tileFilter": {},
+        "markdown": "[VDA Hotspots](#dashboard;id=53bf28af-3a0a-403b-b1cb-4183a3cf55ba)"
+    }, {
+        "name": "Storefront",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 342,
+            "width": 304,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "Launch and Latency Performance",
+        "tileType": "HEADER",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 684,
+            "width": 494,
+            "height": 38
+        },
+        "tileFilter": {}
+    }, {
+        "name": "User Sessions Query",
+        "tileType": "DTAQL",
+        "configured": true,
+        "bounds": {
+            "top": 456,
+            "left": 684,
+            "width": 494,
+            "height": 266
+        },
+        "tileFilter": {},
+        "customName": "ICA Latency",
+        "query": "select DISTINCT DATETIME(endTime, \"HH:mm\", \"15m\") as \"Time\", AVG(useraction.duration) as \"Duration\" from usersession where useraction.name = \"ICA Latency Measurement\" and useraction.application=\"${custom.app.name}\" limit 8",
+        "type": "LINE_CHART",
+        "visualizationConfig": {
+            "hasAxisBucketing": true
+        },
+        "limit": 50
+    }, {
+        "name": "User Sessions Query",
+        "tileType": "DTAQL",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 912,
+            "width": 266,
+            "height": 152
+        },
+        "tileFilter": {},
+        "customName": "ICA Latency",
+        "query": "select avg(duration) as [Average] from useraction where name=\"ICA Latency Measurement\" and application=\"${custom.app.name}\"",
+        "type": "SINGLE_VALUE",
+        "timeFrameShift": "dynamic",
+        "limit": 50
+    }, {
+        "name": "User Sessions Query",
+        "tileType": "DTAQL",
+        "configured": true,
+        "bounds": {
+            "top": 190,
+            "left": 684,
+            "width": 494,
+            "height": 266
+        },
+        "tileFilter": {},
+        "customName": "Client Start",
+        "query": "select DISTINCT DATETIME(useraction.endtime, \"HH:mm\", \"15m\"), avg(useraction.duration) as average from usersession where useraction.name startswith \"Client Start\" and useraction.application=\"${custom.app.name}\" limit 8",
+        "type": "LINE_CHART",
+        "visualizationConfig": {
+            "hasAxisBucketing": true
+        },
+        "limit": 50
+    }, {
+        "name": "User Sessions Query",
+        "tileType": "DTAQL",
+        "configured": true,
+        "bounds": {
+            "top": 38,
+            "left": 684,
+            "width": 228,
+            "height": 152
+        },
+        "tileFilter": {},
+        "customName": "Client Start",
+        "query": "select avg(duration) as [Average] from useraction where name startswith \"Client Start\" and application=\"${custom.app.name}\"",
+        "type": "SINGLE_VALUE",
+        "timeFrameShift": "dynamic",
+        "limit": 50
+    }]
+}

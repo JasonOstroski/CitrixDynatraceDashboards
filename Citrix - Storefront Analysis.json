@@ -1,0 +1,83 @@
+{
+    "metadata": {
+        "configurationVersions": [3],
+        "clusterVersion": "1.192.107.20200515-113042"
+    },
+    "id": "cc322dc3-7e9f-492f-b381-7d66338c244d",
+    "dashboardMetadata": {
+        "name": "Citrix - Storefront Analysis",
+        "shared": true,
+        "owner": "${MyEmail}",
+        "sharingDetails": {
+            "linkShared": true,
+            "published": true
+        },
+        "dashboardFilter": {
+            "timeframe": "",
+            "managementZone": {
+                "id": "${mz.id}",
+                "name": "${mz.name}"
+            }
+        },
+        "tags": ["Citrix", "Configurator"]
+    },
+    "tiles": [{
+        "name": "User Sessions Query",
+        "tileType": "DTAQL",
+        "configured": true,
+        "bounds": {
+            "top": 304,
+            "left": 0,
+            "width": 1216,
+            "height": 456
+        },
+        "tileFilter": {},
+        "customName": "Actions per City detail",
+        "query": "SELECT usersession.country AS Country, usersession.region AS Region, usersession.city AS City, count(usersession.city) AS actions, min(duration) as min, avg(duration) as avg, max(duration) AS max FROM useraction WHERE application='${app.name}' GROUP BY Country,Region,City ORDER BY actions DESC",
+        "type": "TABLE",
+        "limit": 50
+    }, {
+        "name": "Web application",
+        "tileType": "APPLICATION",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 0,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "assignedEntities": ["${app.id}"]
+    }, {
+        "name": "User Sessions Query",
+        "tileType": "DTAQL",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 608,
+            "width": 608,
+            "height": 304
+        },
+        "tileFilter": {},
+        "customName": "Storefront Network Time",
+        "query": "select DISTINCT DATETIME(starttime, \"HH:mm\", \"15m\") as \"Time\", AVG(networkTime) as \"Network Time (Avg)\" from useraction where application=\"${app.name}\"",
+        "type": "LINE_CHART",
+        "visualizationConfig": {
+            "hasAxisBucketing": true
+        },
+        "limit": 50
+    }, {
+        "name": "World map",
+        "tileType": "APPLICATION_WORLDMAP",
+        "configured": true,
+        "bounds": {
+            "top": 0,
+            "left": 304,
+            "width": 304,
+            "height": 304
+        },
+        "tileFilter": {},
+        "assignedEntities": ["${app.id}"],
+        "metric": "APDEX"
+    }]
+}
