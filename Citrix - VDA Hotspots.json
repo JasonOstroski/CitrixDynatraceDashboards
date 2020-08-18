@@ -7,7 +7,7 @@
     "dashboardMetadata": {
         "name": "Citrix - VDA Hotspots",
         "shared": true,
-        "owner": "${MyEmail}",
+        "owner": "jason.ostroski@dynatrace.com",
         "sharingDetails": {
             "linkShared": true,
             "published": true
