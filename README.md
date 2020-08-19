@@ -5,7 +5,8 @@ These Dynatrace dashboards are pre-configured for monitoring your Citrix Environ
 
 # Pre-Requisites and Best Practices
 - Dynatrace deployed on your Citrix hosts. This includes VDAS, Delivery Controllers, and StoreFront Servers. 
-- A [Management Zone](https://www.dynatrace.com/support/help/shortlink/management-zones-hub) defined in Dynatrace for your entire Citrix Environment. 
+- A [Management Zone](https://www.dynatrace.com/support/help/shortlink/management-zones-hub) defined in Dynatrace for your entire Citrix Environment.
+  - When multiple Citrix farms or regions are utilized, it is recommended to utilize a [Host Group](https://www.dynatrace.com/support/help/shortlink/host-groups) and Management Zones for each Citrix VDA farm/region for easy filtering and analysis.
 - An [Application Definition](https://www.dynatrace.com/support/help/shortlink/my-web-application) for the StoreFront app.
-- An Applicaiton Definition for the custom Citrix App.
-- When multiple Citrix farms are utilized, it is recommended to utilize a [Host Group](https://www.dynatrace.com/support/help/shortlink/host-groups) and Management Zones for each Citrix VDA farm for easy filtering and analysis.
+- An Application Definition for the custom Citrix App.
+
