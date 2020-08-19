@@ -19,7 +19,7 @@
                 "name": "${mz.name}"
             }
         },
-        "tags": ["Citrix", "Configurator"]
+        "tags": ["Citrix", "Configurator", "${tag.extensionversion}"]
     },
     "tiles": [{
         "name": "Custom chart",
