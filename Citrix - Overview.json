@@ -149,7 +149,7 @@
             "height": 38
         },
         "tileFilter": {},
-        "markdown": "[VDA Farm Trending](#dashboard;id=${dbswap})"
+        "markdown": "[VDA Farm Trending](#dashboard;id=${dbswap.value})"
     }, {
         "name": "Markdown",
         "tileType": "MARKDOWN",
